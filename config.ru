@@ -9,7 +9,7 @@ Sidekiq.configure_client do |config|
   }
 end
 
-use Prometheus::Middleware::Exporter, path: '/_metrics'
+use Prometheus::Middleware::Exporter, path: '/metrics.txt'
 use Rack::Session::Cookie, secret: ENV['SIDEKIQUI_COOKIE_SECRET']
 
 Thread.new { SidekiqExporter.new.run }
