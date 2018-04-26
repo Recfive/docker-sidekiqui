@@ -1,7 +1,7 @@
 FROM r5/ruby
 
 # DataDog autodiscovery of Prometheus endpoint
-LABEL "com.datadoghq.ad.check_names"='[prometheus]'
+LABEL "com.datadoghq.ad.check_names"='["prometheus"]'
 LABEL "com.datadoghq.ad.init_configs"='[{}]'
 LABEL "com.datadoghq.ad.instances"='[{"prometheus_url": "http://%%host%%:%%port%%/_metrics", "namespace": "r5.sidekiq", "metrics": ["*"]}]'
 

@@ -14,4 +14,13 @@ use Rack::Session::Cookie, secret: ENV['SIDEKIQUI_COOKIE_SECRET']
 
 Thread.new { SidekiqExporter.new.run }
 
-run Sidekiq::Web
+class SidekiqUIStatus < Sinatra::Base
+  get '/' do
+    "OK: SidekiqUI is running"
+  end
+end
+
+run Rack::URLMap.new(
+  "/" => Sidekiq::Web,
+  "/sidekiqui/_status" => SidekiqUIStatus
+)

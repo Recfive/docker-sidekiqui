@@ -48,6 +48,7 @@ class SidekiquiTest < MiniTest::Test
     end
 
     assert last_response.ok?
+    assert last_response.content_type.match('text/plain')
 
     assert last_response.body.match('queue_size{queue="accounts"} 3.0')
     assert last_response.body.match('queue_latency{queue="accounts"}')
@@ -56,6 +57,13 @@ class SidekiquiTest < MiniTest::Test
     assert last_response.body.match('queue_latency{queue="conversations"}')
 
     Sidekiq::Queue.all.each { |queue| queue.clear }
+  end
+
+  def test_healthcheck
+    get '/sidekiqui/_status'
+
+    assert last_response.ok?
+    assert last_response.body.match(/OK/)
   end
 end
 
