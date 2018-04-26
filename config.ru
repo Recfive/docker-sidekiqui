@@ -5,7 +5,7 @@ require './sidekiq_exporter'
 Sidekiq.configure_client do |config|
   config.redis = {
     size: 1,
-    url: "redis://#{ENV['SIDEKIQUI_REDIS_HOST']}:6379/0"
+    url: "redis://#{ENV['REDIS_HOST']}:6379/0"
   }
 end
 
