@@ -40,7 +40,7 @@ class SidekiquiTest < MiniTest::Test
       tries += 1
 
       sleep 0.1
-      get '/_metrics'
+      get '/metrics.txt'
 
       if !last_response.body.empty?
         metric_lines = last_response.body.split("\n").reject { |line| line[0] == '#' }

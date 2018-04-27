@@ -10,6 +10,8 @@ WORKDIR /app
 
 ENV BUNDLE_GEMFILE=/app/Gemfile BUNDLE_JOBS=2 BUNDLE_PATH=/bundle
 
+COPY prometheus-client_ruby /app/prometheus-client_ruby
+
 # Load gems needed by images that extend this image
 ADD Gemfile /app/
 RUN bundle install --path /bundle
