@@ -1,5 +1,6 @@
 require 'prometheus/middleware/exporter'
 require 'sidekiq/web'
+require 'sidekiq-failures'
 require './sidekiq_exporter'
 
 Sidekiq.configure_client do |config|
