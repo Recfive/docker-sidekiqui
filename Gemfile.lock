@@ -25,6 +25,7 @@ GEM
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
     coderay (1.1.2)
+    concurrent-ruby (1.1.4)
     connection_pool (2.2.2)
     hitimes (1.2.6)
     json (1.8.6)
@@ -45,6 +46,7 @@ GEM
     redis (3.3.5)
     redis-namespace (1.6.0)
       redis (>= 3.0.4)
+    redis-prescription (1.0.0)
     sidekiq (3.5.4)
       celluloid (~> 0.17.2)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -53,6 +55,10 @@ GEM
       redis-namespace (~> 1.5, >= 1.5.2)
     sidekiq-failures (0.4.5)
       sidekiq (>= 2.16.0)
+    sidekiq-throttled (0.9.0)
+      concurrent-ruby
+      redis-prescription
+      sidekiq
     sinatra (2.0.3)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -74,6 +80,7 @@ DEPENDENCIES
   rake
   sidekiq (~> 3.5.0)
   sidekiq-failures
+  sidekiq-throttled
   sinatra
 
 BUNDLED WITH
